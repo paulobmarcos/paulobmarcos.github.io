@@ -1,0 +1,102 @@
+@import "../../../../shared/styles/imports/index.css";
+
+.portfolio {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background-color: var(--color-dark-gray);
+}
+
+.content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+}
+
+.pointer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6.6rem;
+  height: 6.6rem;
+  border: 0.2rem solid var(--color-white);
+  opacity: 0;
+  background-color: transparent;
+  border-radius: 50%;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+
+  & > svg {
+    width: 1rem;
+    height: 1rem;
+    fill: var(--color-green);
+  }
+
+  & .left,
+  & .right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  & .left {
+    left: -1.5rem;
+  }
+
+  & .right {
+    right: -1.5rem;
+  }
+}
+
+.more {
+  --carousel-item-vertical-margin: calc(((100vh - var(--carousel-item-height)) / 2));
+  --carousel-item-horizontal-margin: calc(((100vw - var(--carousel-item-width)) / 2));
+
+  position: absolute;
+  top: calc(var(--carousel-item-vertical-margin) + var(--carousel-item-height));
+  left: var(--carousel-item-horizontal-margin);
+  width: var(--carousel-item-width);
+  height: var(--carousel-item-vertical-margin);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  & .title {
+    font-family: "Leiko";
+    font-size: 3vh;
+  }
+}
+
+/* ==========================================================================
+    Portrait
+    ========================================================================== */
+
+@media (orientation: portrait) {
+  .portfolio {
+    height: auto;
+    min-height: 100vh;
+  }
+}
+
+/* ==========================================================================
+    Touch Screens
+    ========================================================================== */
+
+@media (hover: none), (any-pointer: coarse) {
+  .pointer {
+    display: none;
+  }
+}

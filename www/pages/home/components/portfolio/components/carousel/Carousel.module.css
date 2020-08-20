@@ -1,0 +1,227 @@
+@import "../../../../../../shared/styles/imports/index.css";
+
+.wrapper {
+  height: 100%;
+  overflow: hidden;
+  user-select: none;
+}
+
+.carousel {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  outline: transparent;
+}
+
+.slider {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.intro {
+  position: relative;
+  width: var(--carousel-item-width);
+  height: var(--carousel-item-height);
+
+  & .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-white);
+    font-size: 6vw;
+    font-weight: 900;
+    font-style: italic;
+    transition: transform 0.3s ease-out;
+
+    & .subtitle {
+      font-family: "Leiko";
+      font-size: 0.25em;
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    & .title:nth-child(2) {
+      color: transparent;
+      -webkit-text-stroke: 0.035ch #64f4ac;
+    }
+
+    &:hover {
+      transform: translate(-50%, -50%) scale(1.05);
+    }
+  }
+
+  &:hover {
+    cursor: grab;
+  }
+}
+
+.item {
+  position: relative;
+  width: var(--carousel-item-width);
+  height: var(--carousel-item-height);
+  overflow: visible;
+  margin-left: 10vw;
+  perspective: 2000px;
+  color: var(--color-white);
+  text-decoration: none;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:global(.-current) {
+    & .background,
+    & .info {
+      transition: none;
+    }
+  }
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 1s ease;
+
+  & .image {
+    width: 100%;
+    height: 100%;
+    transform: scale(1.07);
+    background-position: center;
+    background-size: cover;
+    transition: transform 0.3s ease-out;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    background-color: var(--color-black);
+  }
+
+  &:hover .image {
+    transform: scale(1);
+  }
+}
+
+.info {
+  position: absolute;
+  top: 50%;
+  left: 6.5%;
+  transform: translate(0, -50%);
+  text-shadow: 0 0.1em 0.3em rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  transition: transform 1s ease;
+
+  & .title {
+    font-size: 4.5vw;
+    font-weight: 900;
+    font-style: italic;
+  }
+
+  & .subtitle {
+    font-family: "Leiko";
+    font-size: 1.2vw;
+  }
+}
+
+/* ==========================================================================
+    Bounce
+    ========================================================================== */
+
+@keyframes bounce {
+  0%,
+  60%,
+  80%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  40% {
+    transform: translate(-15%, 0);
+  }
+
+  80% {
+    transform: translate(-10%, 0);
+  }
+
+  90% {
+    transform: translate(-5%, 0);
+  }
+}
+
+.bounce {
+  transform: translate(0, 0);
+
+  &:hover {
+    animation: bounce 0.8s linear;
+  }
+}
+
+/* ==========================================================================
+    Portrait
+    ========================================================================== */
+
+@media (orientation: portrait) {
+  .carousel {
+    margin: 7vh 0 10vh 0;
+  }
+
+  .intro {
+    width: 100%;
+    height: auto;
+    margin-top: calc(var(--header-height) + var(--header-frame-top) + 10vh);
+
+    & .content {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0, 0);
+      font-size: 14vw;
+    }
+  }
+
+  .item {
+    margin-left: 1rem;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  .info {
+    left: 4%;
+    transform: translate(0, -50%);
+
+    & .title {
+      font-size: 8.4vw;
+    }
+
+    & .subtitle {
+      font-size: 3.2vw;
+    }
+  }
+}
+
+/* ==========================================================================
+    Touch Screens
+    ========================================================================== */
+
+@media (hover: none), (any-pointer: coarse) {
+  .background .image {
+    transform: scale(1);
+  }
+}

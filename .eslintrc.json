@@ -1,0 +1,19 @@
+{
+  "root": true,
+  "env": {
+      "browser": true,
+      "node": true
+  },
+  "extends": [
+      "@moxy/eslint-config-base/esm",
+      "@moxy/eslint-config-babel",
+      "@moxy/eslint-config-react",
+      "@moxy/eslint-config-react-web-a11y"
+  ],
+  "rules": {
+      "indent": [2, 2],
+      "jsx-a11y/anchor-is-valid": 0,
+      "react/jsx-indent": [2, 2],
+      "react/jsx-indent-props": [2, 2]
+  }
+}

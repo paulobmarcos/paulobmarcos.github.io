@@ -1,0 +1,92 @@
+@import "../../styles/imports/index.css";
+
+.header {
+  position: fixed;
+  top: calc(var(--header-frame-top) + var(--layout-padding));
+  left: 0;
+  width: 100vw;
+  height: var(--header-height);
+  z-index: var(--z-index-header);
+  padding: 0 var(--header-frame-top);
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  width: 100%;
+  max-width: var(--layout-max-width);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name {
+  flex: 1 1 0;
+  font-size: 3.2rem;
+  cursor: default;
+
+  & > * {
+    font-weight: normal;
+    white-space: nowrap;
+  }
+
+  & b {
+    pointer-events: none;
+  }
+}
+
+.social {
+  display: flex;
+  flex: 1 1 0;
+  justify-content: flex-end;
+  user-select: none;
+
+  & a {
+    color: var(--color-white);
+
+    &:not(:first-child) {
+      margin-left: 3rem;
+    }
+
+    & svg {
+      height: 2.4rem;
+      transition: fill 0.2s ease-out;
+      fill: var(--color-white);
+    }
+
+    &:hover svg {
+      fill: var(--color-green);
+    }
+  }
+}
+
+.links {
+  display: flex;
+  user-select: none;
+
+  & > *:not(:first-child) {
+    margin-left: 5ch;
+  }
+}
+
+/* ==========================================================================
+   Custom medias
+   ========================================================================== */
+
+@media (--layout-lte-medium) {
+  .links {
+    display: none;
+  }
+}
+
+@media (--layout-lte-xsmall) {
+  .header {
+    top: 3rem;
+    padding: 0 2.5rem;
+  }
+
+  .name {
+    font-size: 6.5vw;
+  }
+}

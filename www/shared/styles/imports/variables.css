@@ -1,0 +1,77 @@
+@import "./custom-medias";
+
+/* ==========================================================================
+   Colors
+   ========================================================================== */
+
+:root {
+  --color-white: #fff;
+  --color-black: #000;
+  --color-dark: #0f0f11;
+  --color-gray: #2d2e32;
+  --color-light-gray: #c1c5d4;
+  --color-dark-gray: #191a1d;
+  --color-green: #64f4ac;
+  --color-green-dark: #286144;
+}
+
+/* ==========================================================================
+   Z-Indexes
+   ========================================================================== */
+
+:root {
+  --z-index-base: 1;
+  --z-index-header: 5;
+  --z-index-frame: 6;
+}
+
+/* ==========================================================================
+   Sizes
+   ========================================================================== */
+
+:root {
+  --layout-width: 100vw;
+  --layout-height: 100vh;
+  --layout-max-width: 150rem;
+  --layout-padding: 2.2rem;
+
+  --header-height: 4rem;
+  --header-frame-top: calc(var(--layout-padding) * 2);
+
+  --content-viewport-height: calc(100vh - (var(--layout-padding) * 2));
+
+  --carousel-item-width: 60vw;
+  --carousel-item-height: 30vw;
+}
+
+/* ==========================================================================
+    Landscape
+    ========================================================================== */
+
+@media (orientation: landscape) {
+  :root {
+    --carousel-item-width: 60vw;
+    --carousel-item-height: 33vw;
+  }
+}
+
+/* ==========================================================================
+    Portrait
+    ========================================================================== */
+
+@media (orientation: portrait) {
+  :root {
+    --carousel-item-width: 80vw;
+    --carousel-item-height: 80vw;
+  }
+}
+
+/* ==========================================================================
+   Custom medias
+   ========================================================================== */
+
+@media (--layout-lte-small) {
+  :root {
+    --layout-padding: 2vw;
+  }
+}

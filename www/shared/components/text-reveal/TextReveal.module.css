@@ -1,0 +1,13 @@
+.char {
+  transition: opacity 0.2s cubic-bezier(0.8, 0, 0.4, 1);
+}
+
+.invisible {
+  opacity: 0;
+  transition-duration: 0s !important;
+  transition-delay: 0s !important;
+}
+
+.visible {
+  opacity: 1;
+}

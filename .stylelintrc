@@ -1,0 +1,8 @@
+{
+    "extends": "stylelint-config-moxy",
+    "ignoreFiles": ["!**/*.css"],
+    "rules": {
+        "indentation": 2,
+        "scale-unlimited/declaration-strict-value": 0
+    }
+}
