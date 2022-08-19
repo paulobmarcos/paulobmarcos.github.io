@@ -1,0 +1,11 @@
+.bounds {
+  width: 100%;
+  padding: 0 var(--layout-padding);
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  width: 100%;
+  max-width: var(--layout-max-width);
+}

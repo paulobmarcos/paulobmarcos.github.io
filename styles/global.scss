@@ -1,0 +1,91 @@
+@use './text.module.scss' as text;
+@use './typography.module.scss' as typography;
+
+@import 'normalize.css';
+@import '@moxy/react-carousel/dist/styles.css';
+@import './fonts.module.scss';
+@import './custom-properties.scss';
+
+/* ==========================================================================
+   Proper box-sizing model
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Document
+   ========================================================================== */
+
+/*
+   1. Stretch <html> stretch to fill our screen height
+   2. Make children of html (body) occupy at least 100% of the screen
+   3. Viewport is scalable and occupies at least 320px (iPhone SE)
+*/
+
+html {
+  min-width: 32em;
+  height: 0; /* 3 */
+  min-height: 100%; /* 1 */
+  display: flex; /* 2 */
+  flex-direction: column; /* 2 */
+}
+
+/* ==========================================================================
+   Body & #root
+   ========================================================================== */
+
+body {
+  height: 100%;
+  display: flex;
+  flex-basis: auto;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+
+#__next {
+  display: flex;
+  flex-basis: auto;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   Typography Defaults
+   ========================================================================== */
+
+html {
+  font-size: 62.5%; /* 62.5% so that all the REM measurements re based on 10px sizing */
+}
+
+body {
+  @include text.text-smooth;
+  @include typography.typography-body;
+
+  overflow-wrap: break-word; /* Break long words by default */
+  -webkit-tap-highlight-color: transparent; /* Do not show a highlight (rectangle around the link) while tapping it */
+}
+
+/* ==========================================================================
+   Headings
+   ========================================================================== */
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0.7em 0;
+}
+
+h1 {
+  @include typography.typography-h1;
+}
+
+h2 {
+  @include typography.typography-h2;
+}

@@ -1,0 +1,29 @@
+/* ==========================================================================
+  Fonts
+  ========================================================================== */
+
+@mixin font-karasuma($fontWeight: 400) {
+  font-family: 'Karasuma', sans-serif;
+  font-weight: $fontWeight;
+}
+
+/* ==========================================================================
+  All typography variants
+
+  Units - Either em or rem
+  ========================================================================== */
+
+@mixin typography-h1 {
+  @include font-karasuma(800);
+  font-size: 10.4vw;
+}
+
+@mixin typography-h2 {
+  @include font-karasuma(600);
+  font-size: 6.4vw;
+}
+
+@mixin typography-body {
+  @include font-karasuma();
+  font-size: 1.6rem;
+}

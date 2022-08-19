@@ -1,0 +1,10 @@
+@use '~styles/colors.module.scss' as colors;
+@use '~styles/mixins.module.scss' as mixins;
+
+.button {
+  @include mixins.unstyled-button;
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}

@@ -1,0 +1,6 @@
+.atom
+.idea
+.vscode
+.yarn
+
+node_modules

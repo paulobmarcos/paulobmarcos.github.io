@@ -1,7 +1,0 @@
-@import "./custom-medias.css";
-@import "./variables.css";
-
-/* MIXINS */
-@import "./mixins/text.css";
-@import "./mixins/typography.css";
-@import "./mixins/unstyled-button.css";

@@ -1,0 +1,14 @@
+/* ==========================================================================
+  Common Mixins
+  ========================================================================== */
+
+@mixin unstyled-button {
+  padding: 0;
+  border: none;
+  outline-style: none;
+  background: transparent;
+  border-radius: 0;
+  color: inherit;
+  cursor: pointer;
+  appearance: none;
+}

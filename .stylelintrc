@@ -1,8 +1,11 @@
 {
-    "extends": "stylelint-config-moxy",
-    "ignoreFiles": ["!**/*.css"],
-    "rules": {
-        "indentation": 2,
-        "scale-unlimited/declaration-strict-value": 0
-    }
+  "extends": "@moxy/stylelint-config",
+  "plugins": ["stylelint-scss"],
+  "ignoreFiles": ["!**/*.css", "!**/*.scss"],
+  "rules": {
+    "indentation": 2,
+    "declaration-property-value-disallowed-list": null,
+    "string-quotes": "single",
+    "scale-unlimited/declaration-strict-value": 0
+  }
 }

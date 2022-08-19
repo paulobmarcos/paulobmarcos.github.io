@@ -1,0 +1,138 @@
+@use '~styles/colors.module.scss' as colors;
+
+.bounds {
+  position: relative;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background-color: colors.$color-dark-gray;
+}
+
+.expertise {
+  height: var(--layout-height);
+  padding-top: var(--header-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  position: relative;
+  perspective: 1000px;
+  user-select: none;
+}
+
+.text,
+.logos {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & .title {
+    margin-bottom: 3vh;
+    font-family: 'Leiko';
+    font-size: 2.9vh;
+  }
+
+  & .item {
+    margin-top: -0.1ch;
+    color: transparent;
+    font-size: 12vh;
+    font-weight: 900;
+    transition: all 0.3s ease;
+    -webkit-text-stroke: 0.03ch colors.$color-white;
+
+    &:hover {
+      color: colors.$color-white;
+    }
+  }
+}
+
+.logos {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+
+  & .itemLogo {
+    position: absolute;
+    width: 25%;
+
+    &.react {
+      top: 10%;
+      left: -8%;
+    }
+
+    &.next {
+      top: 23%;
+      right: -10%;
+    }
+
+    &.typescript {
+      top: 61%;
+      left: -24%;
+    }
+
+    &.node {
+      top: 75%;
+      right: -18%;
+    }
+  }
+}
+
+/* ==========================================================================
+   Landscape
+   ========================================================================== */
+
+@media (orientation: landscape) {
+  .text {
+    & .title {
+      font-size: 2.9vh;
+    }
+
+    & .item {
+      font-size: 12vh;
+    }
+  }
+}
+
+/* ==========================================================================
+   Portrait
+   ========================================================================== */
+
+@media (orientation: portrait) {
+  .text {
+    & .title {
+      font-size: 5vw;
+    }
+
+    & .item {
+      font-size: 14vw;
+    }
+  }
+}
+
+/* ==========================================================================
+    iOS
+    ========================================================================== */
+
+@supports (-webkit-touch-callout: none) {
+  .expertise {
+    padding-top: 0;
+  }
+}

@@ -1,0 +1,96 @@
+@use '~styles/variables.module.scss' as variables;
+@use '~styles/colors.module.scss' as colors;
+@use '~styles/medias.module.scss' as medias;
+
+.header {
+  position: fixed;
+  top: calc(var(--header-frame-top) + var(--layout-padding));
+  left: 0;
+  width: 100vw;
+  height: var(--header-height);
+  z-index: variables.$z-index-header;
+  padding: 0 var(--header-frame-top);
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  width: 100%;
+  max-width: var(--layout-max-width);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-shadow: 0 0.1em 0.4em rgba(0, 0, 0, 1);
+}
+
+.name {
+  flex: 1 1 0;
+  font-size: 3.2rem;
+  cursor: default;
+
+  & > * {
+    font-weight: normal;
+    white-space: nowrap;
+  }
+
+  & b {
+    pointer-events: none;
+  }
+}
+
+.social {
+  display: flex;
+  flex: 1 1 0;
+  justify-content: flex-end;
+  user-select: none;
+
+  & a {
+    color: colors.$color-white;
+
+    &:not(:first-child) {
+      margin-left: 3rem;
+    }
+
+    & svg {
+      width: 2.4rem;
+      height: 2.4rem;
+      transition: fill 0.2s ease-out;
+      fill: colors.$color-white;
+    }
+
+    &:hover svg {
+      fill: colors.$color-green;
+    }
+  }
+}
+
+.links {
+  display: flex;
+  user-select: none;
+
+  & > *:not(:first-child) {
+    margin-left: 5ch;
+  }
+}
+
+/* ==========================================================================
+   Custom medias
+   ========================================================================== */
+
+@media (max-width: medias.$desktop-small) {
+  .links {
+    display: none;
+  }
+}
+
+@media (max-width: medias.$mobile) {
+  .header {
+    top: 3rem;
+    padding: 0 2.5rem;
+  }
+
+  .name {
+    font-size: 6.5vw;
+  }
+}
